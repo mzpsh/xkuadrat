@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>x² - kalkulator persamaan kuadrat</title>
+    <style>
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      
+      @font-face {
+        font-family: rubik-light;
+        src: url(resources/Rubik-Light.ttf)
+      }
+      @font-face {
+        font-family: rubik-medium;
+        src: url(resources/Rubik-Medium.ttf)
+      }
+      
+      .lightfont { font-family: rubik-light; }
+      .mediumfont { font-family: rubik-medium; }
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .flex-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      #container {
+        display: flex;
+        margin: auto 0px;
+      }
+      #equat-container {
+        flex-direction: column; /*row*/
+        padding: 32px 21px; /*12px 21px*/
+        margin: 16px;
+        background-color: #F5F6F7;
+        color: #555555;
+        border-radius: 10px;
+      }
+      #equations {
+        padding: 0px;
+        margin: 10px 21px 18px; /*0px 21px*/
+      }
+      #hitung {
+        padding: 22px 136px;  /*8px 15px*/
+        margin: 20px 32px 10px; /*0px 32px*/
+        font-size: 36px; /*25px*/
+        background-color: #2ECC71;
+        color: #FFFFFF;
+        border-style: solid;
+        border-width: 0px 0px 5px; /*0px 0px 3px*/
+        border-radius: 10px; /*5px*/
+        border-color: #22A659;
+        transition: all 0.2s;
+        transition-timing-function: ease-out;
+      }
+      #hitung:hover {
+        background-color: #31D978;
+        border-color: #27BF67;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); /*0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)*/
+      }
+      #hitung:focus { outline: none; }
+      #hasil {
+        padding: 12px 42px;
+        margin: 52px; /*16px*/
+        font-size: 48px; /*32px*/
+        background-color: #FF5240;
+        border-style: solid;
+        border-width: 0px 5px 0px 5px;
+        border-color: #D94637;
+        border-radius: 10px;
+        text-align: center;
+        transition: all 0.2s;
+        transition-timing-function: ease-out;
+        opacity: 0;
+      }
+      
+      body {
+        background-color: #0288D1;
+        color: #FFFFFF;
+        font-family: rubik-light;
+        font-size: 40px;
+      }
+      h1 {
+        margin: 16px;
+        font-weight: normal;
+        font-size: 66px; /*40px*/
+        text-align: center;
+      }
+      div {
+        border-style: solid;
+        border-width: 0px;
+        border-color: #FFFF00;
+      }
+      input {
+        padding: 0px;
+        margin: 0px;
+        width: 65px;
+        background-color: #F5F6F7;
+        color: #555555;
+        font-size: 40px;
+        text-align: right;  
+        border-style: solid;
+        border-width: 0px;
+      }
+      input:focus {
+        border-style: solid;
+        border-width: 0px 0px 2px;
+        border-color: #A9A9A9;
+        outline: none;
+      } 
+      .ok {
+        border-width: 0px;
+      }
+      .ok:focus {
+        border-width: 0px 0px 3px;
+        border-color: #A9A9A9;
+      }
+      .notok {
+        border-width: 0px 0px 3px;
+        border-color: #FF6C6C;
+      }
+      
+      @media screen and (min-width:1024px) {
+        #equat-container {
+          flex-direction: row;
+          padding: 16px 21px;
+        }
+        #equations {
+          margin: 0px 21px;
+        }
+        #hitung {
+          padding: 8px 15px;
+          margin: 0px 21px;
+          font-size: 25px;
+          border-width: 0px 0px 3px;
+          border-radius: 5px;
+        }
+        #hitung:hover {
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        #hasil {
+          margin: 16px;
+          font-size: 32px;
+        }
+        h1 {
+          font-size: 40px;
+        }
+      }
+      @media screen and (min-resolution:180dpi) {
+        body {
+          zoom: 150%;
+        }
+      }
+    </style>
+  </head>
+  <body class="flex-column">
+    <div id="container">
+      <div id="content" class="flex-column">
+        <h1 id="heading">kalkulator <span class="mediumfont">persamaan kuadrat</span></h1>
+        <div id="equat-container" class="flex-row">
+          <div id="equations" class="lightfont">
+          <span style="color: #A9A9A9;">.</span><input id="a" class="lightfont" type="number" placeholder="a"></input>x²&nbsp + <input id="b" class="lightfont" type="number" placeholder="b"></input>x&nbsp + <input id="c" class="lightfont" type="number" placeholder="c"></input>&nbsp =&nbsp 0
+          </div>
+          <button id="hitung" class="mediumfont" onclick="hitungPersamaan()">
+          HITUNG >
+          </button>
+        </div>
+        <div id="hasil">
+        </div>
+      </div>
+    </div>
+    <script>
+    function hitungPersamaan() {
+      a = document.getElementById('a').value;
+      if ( a == "" || a == null ) {
+         a = 1
+      } else {
+        undefined
+      }
+      b = document.getElementById('b')
+      if ( b.value == "" || b.value == null ) {
+         b.className = "notok lightfont"
+      } else {
+        b.className = "ok"
+        b = b.value
+        c = document.getElementById('c')
+        if ( c.value == "" || c.value == null ) {
+          c.className = "notok lightfont"
+        } else {
+          c.className ="ok"
+          c = c.value
+          hasil = document.getElementById('hasil');
+          akar = Math.sqrt((b * b) - (4 * a * c)) 
+          if (isNaN(akar) == true) {
+            hasil.innerHTML = "Hasil tidak tersedia<br>(bilangan imajiner)"
+          } else {
+            hasilX1 = (-b + akar) / (2 * a)
+            hasilX2 = (-b - akar) / (2 * a)
+            hasil.innerHTML = 'x = <span id="X1" class="mediumfont">18</span><br><span style="font-size: 26px;">atau</span><br>x = <span id="X2" class="mediumfont">-18</span>'
+            formX1 = document.getElementById('X1')
+            formX2 = document.getElementById('X2')
+            hasilX1str = String(hasilX1)
+            hasilX2str = String(hasilX2)
+            if (hasilX1str.indexOf('.') !== -1 ) {
+              formX1.textContent = hasilX1.toFixed(3)
+            } else {
+              formX1.textContent = hasilX1
+            }
+            if (hasilX2str.indexOf('.') !== -1 ) {
+              formX2.textContent = hasilX2.toFixed(3)
+            } else {
+              formX2.textContent = hasilX2
+            }
+          }
+          hasil.style.opacity = 1
+        }
+      }
+    }
+    </script>
+  </body>
+</html>
