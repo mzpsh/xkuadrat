@@ -30,6 +30,9 @@
         flex-direction: row;
         align-items: center;
       }
+      .shadow {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      }
       #container {
         display: flex;
         margin: auto 0px;
@@ -40,7 +43,7 @@
         margin: 16px;
         background-color: #F5F6F7;
         color: #555555;
-        border-radius: 10px;
+        border-radius: 5px;
       }
       #equations {
         padding: 0px;
@@ -50,47 +53,47 @@
         padding: 22px 136px;  /*8px 15px*/
         margin: 20px 32px 10px; /*0px 32px*/
         font-size: 36px; /*25px*/
-        background-color: #2ECC71;
+        background-color: #0288D1;
         color: #FFFFFF;
         border-style: solid;
         border-width: 0px 0px 5px; /*0px 0px 3px*/
         border-radius: 10px; /*5px*/
-        border-color: #22A659;
+        border-color: #0277BD;
         transition: all 0.2s;
         transition-timing-function: ease-out;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
       }
       #hitung:hover {
-        background-color: #31D978;
-        border-color: #27BF67;
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); /*0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)*/
+        background-color: #039BE5;
+        border-color: #0288D1;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
       }
       #hitung:focus { outline: none; }
       #hasil {
-        padding: 12px 42px;
-        margin: 52px; /*16px*/
-        font-size: 48px; /*32px*/
-        background-color: #FF5240;
-        border-style: solid;
-        border-width: 0px 5px 0px 5px;
-        border-color: #D94637;
-        border-radius: 10px;
-        text-align: center;
-        transition: all 0.2s;
-        transition-timing-function: ease-out;
-        opacity: 0;
+        margin: 16px;
       }
-      
+      .card {
+        zoom: 125%; /*100%*/
+        position: relative;
+        padding: 25px;
+        margin: 22px; /*16px*/
+        width: 380px; /*350px*/
+        height: 125px; /*85px*/
+        color: #555555;
+        font-size: 28px; /*20px*/
+        background-color: #F5F6F7;
+        border-radius: 5px;
+      }
       body {
-        background-color: #0288D1;
+        padding: 100px 0px;
+        background-color: #37474f ;
         color: #FFFFFF;
         font-family: rubik-light;
         font-size: 40px;
       }
-      h1 {
-        margin: 16px;
-        font-weight: normal;
-        font-size: 66px; /*40px*/
-        text-align: center;
+      img {
+        zoom: 125%;
+        margin: 42px; /*16px*/
       }
       div {
         border-style: solid;
@@ -125,7 +128,43 @@
         border-width: 0px 0px 3px;
         border-color: #FF6C6C;
       }
-      
+      #dialogoverlay {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: all 0.2s;
+        transition-timing-function: ease-out;
+        pointer-events: none;
+        opacity: 0;
+      }
+      #dialogoverlay:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #dialog {
+        position: absolute;
+        z-index: 2000;
+        top: calc(50% - 150px);
+        left: calc(50% - 250px);
+        padding: 25px;
+        width: 450px;
+        height: 225px;
+        color: #555555;
+        font-size: 28px;
+        background-color: #F5F6F7;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        border-radius: 5px;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:visited {
+        color: red;
+      }
       @media screen and (min-width:1024px) {
         #equat-container {
           flex-direction: row;
@@ -141,15 +180,24 @@
           border-width: 0px 0px 3px;
           border-radius: 5px;
         }
-        #hitung:hover {
-          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        }
         #hasil {
-          margin: 16px;
           font-size: 32px;
+          margin: 0px;
         }
-        h1 {
-          font-size: 40px;
+        .card {
+          zoom: 100%;
+          padding: 15px;
+          margin: 16px;
+          width: 350px;
+          height: 85px;
+          font-size: 20px;
+        }
+        img {
+          zoom: 100%;
+        }
+        #dialog {
+          font-size: 18px;
+          height: 125px;
         }
       }
       @media screen and (min-resolution:180dpi) {
@@ -162,10 +210,10 @@
   <body class="flex-column">
     <div id="container">
       <div id="content" class="flex-column">
-        <h1 id="heading">kalkulator <span class="mediumfont">persamaan kuadrat</span></h1>
-        <div id="equat-container" class="flex-row">
+        <img src="resources/head.svg">
+        <div id="equat-container" class="flex-row shadow">
           <div id="equations" class="lightfont">
-          <span style="color: #A9A9A9;">.</span><input id="a" class="lightfont" type="number" placeholder="a"></input>x²&nbsp + <input id="b" class="lightfont" type="number" placeholder="b"></input>x&nbsp + <input id="c" class="lightfont" type="number" placeholder="c"></input>&nbsp =&nbsp 0
+          <span style="color: #A9A9A9;">.</span><input id="a" class="lightfont" onclick="blankForm('a')" type="number" placeholder="a"></input>x²&nbsp + <input id="b" class="lightfont" onclick="blankForm('b')" type="number" placeholder="b"></input>x&nbsp + <input id="c" class="lightfont" onclick="blankForm('c')" type="number" placeholder="c"></input>&nbsp =&nbsp 0
           </div>
           <button id="hitung" class="mediumfont" onclick="hitungPersamaan()">
           HITUNG >
@@ -175,50 +223,59 @@
         </div>
       </div>
     </div>
+    <div id="dialogoverlay">
+      <div id="dialog">Aplikasi sederhana untuk memecahkan persamaan kuadrat.<br><br> kode sumber <a href="https://github.com/mzpsh/xtwo" style="color: #888888;" target="blank">github.com/mzpsh/xtwo</a>
+      <div style="position: absolute; bottom: 25px; right: 25px; float: right;"><a href="#close"  style="color: #0288D1;" class="mediumfont">TUTUP</a></div>
+      </div>
+    </div>
+    <a href="#dialogoverlay" class="mediumfont" style="color: #78909C; font-size: 18px; margin-top: 100px;">TENTANG</a>
     <script>
+    function blankForm(id) {
+      document.getElementById(id).value = ''
+    }
     function hitungPersamaan() {
-      a = document.getElementById('a').value;
-      if ( a == "" || a == null ) {
+      a = document.getElementById('a').value
+      if ( a == '' || a == null ) {
          a = 1
+         aStr = ''
       } else {
-        undefined
+        aStr = a
       }
       b = document.getElementById('b')
-      if ( b.value == "" || b.value == null ) {
-         b.className = "notok lightfont"
+      if ( b.value == '' || b.value == null ) {
+         b.className = 'notok lightfont'
       } else {
-        b.className = "ok"
+        b.className = 'ok'
         b = b.value
+        bStr = b
         c = document.getElementById('c')
-        if ( c.value == "" || c.value == null ) {
-          c.className = "notok lightfont"
+        if ( c.value == '' || c.value == null ) {
+          c.className = 'notok lightfont'
         } else {
-          c.className ="ok"
+          c.className = 'ok'
           c = c.value
+          cStr = c
           hasil = document.getElementById('hasil');
           akar = Math.sqrt((b * b) - (4 * a * c)) 
           if (isNaN(akar) == true) {
-            hasil.innerHTML = "Hasil tidak tersedia<br>(bilangan imajiner)"
+            hasil.innerHTML = '<div class="card shadow"><div class="mediumfont" style="float: right;"><</div><div>Hasil tidak tersedia<br>(bilangan imajiner)</div><div style="position: absolute; bottom: 10px; color: #888888;">' + aStr + 'x² + ' + bStr + 'x + ' + cStr + ' = 0</div></div>' + hasil.innerHTML
           } else {
             hasilX1 = (-b + akar) / (2 * a)
             hasilX2 = (-b - akar) / (2 * a)
-            hasil.innerHTML = 'x = <span id="X1" class="mediumfont">18</span><br><span style="font-size: 26px;">atau</span><br>x = <span id="X2" class="mediumfont">-18</span>'
-            formX1 = document.getElementById('X1')
-            formX2 = document.getElementById('X2')
             hasilX1str = String(hasilX1)
             hasilX2str = String(hasilX2)
             if (hasilX1str.indexOf('.') !== -1 ) {
-              formX1.textContent = hasilX1.toFixed(3)
+              hasilX1 = hasilX1.toFixed(6)
             } else {
-              formX1.textContent = hasilX1
+              undefined
             }
             if (hasilX2str.indexOf('.') !== -1 ) {
-              formX2.textContent = hasilX2.toFixed(3)
+              hasilX2 = hasilX2.toFixed(6)
             } else {
-              formX2.textContent = hasilX2
+              undefined
             }
+            hasil.innerHTML = '<div class="card shadow"><div class="mediumfont" style="float: right;"><</div><div>x = ' + hasilX1 + ' atau<br>x = ' + hasilX2 + '</div><div style="position: absolute; bottom: 10px; color: #888888;">' + aStr + 'x² + ' + bStr + 'x + ' + cStr + ' = 0</div></div>' + hasil.innerHTML
           }
-          hasil.style.opacity = 1
         }
       }
     }

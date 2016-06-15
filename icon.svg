@@ -34,19 +34,6 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter9468"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.4"
-         id="feGaussianBlur9470" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
        id="filter9513"
        x="-0.024"
        width="1.048"
@@ -79,6 +66,19 @@
        x2="32.419895"
        y2="31.732395"
        gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4200"
+       x="-0.024"
+       width="1.048"
+       y="-0.024"
+       height="1.048">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.4"
+         id="feGaussianBlur4202" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -88,11 +88,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.3315848"
-     inkscape:cx="34.924513"
-     inkscape:cy="21.329585"
+     inkscape:cx="15.06623"
+     inkscape:cy="36.441227"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
-     showgrid="false"
+     showgrid="true"
      units="px"
      inkscape:snap-page="true"
      inkscape:window-width="1280"
@@ -107,7 +107,8 @@
      inkscape:object-nodes="true"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:snap-grids="false">
+     inkscape:snap-grids="false"
+     inkscape:bbox-nodes="true">
     <inkscape:grid
        type="xygrid"
        id="grid8760"
@@ -123,7 +124,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -178,8 +179,8 @@
        x="4"
        height="40"
        width="40"
-       id="rect9462"
-       style="opacity:0.5;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter9468)" />
+       id="rect4194"
+       style="opacity:0.25;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4200)" />
     <rect
        style="opacity:1;fill:#263238;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect9433"
@@ -222,23 +223,20 @@
        inkscape:connector-curvature="0"
        id="path9524"
        d="m 39,20.25 c 0.554,0 1,-0.446 1,-1 l 0,-6 c 0,-0.554 -0.446,-1 -1,-1 l -6,0 c -0.554,0 -1,0.446 -1,1 l 0,3 a 4,4 0 0 0 4,4 l 3,0 z"
-       style="opacity:0.25;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter9558)" />
+       style="opacity:0.25;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter9558)"
+       transform="matrix(1.25,0,0,1.25,-10,-7)" />
     <path
        style="opacity:1;fill:#0288d1;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 39,20 c 0.554,0 1,-0.446 1,-1 l 0,-6 c 0,-0.554 -0.446,-1 -1,-1 l -6,0 c -0.554,0 -1,0.446 -1,1 l 0,3 a 4,4 0 0 0 4,4 l 3,0 z"
+       d="M 38.75,18 C 39.4425,18 40,17.4425 40,16.75 l 0,-7.5 C 40,8.5575 39.4425,8 38.75,8 l -7.5,0 C 30.5575,8 30,8.5575 30,9.25 L 30,13 a 5,5 0 0 0 5,5 l 3.75,0 z"
        id="rect9496"
        inkscape:connector-curvature="0" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot9579"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:6px;line-height:100%;font-family:Rubik;-inkscape-font-specification:'Rubik Medium';letter-spacing:0px;word-spacing:0px;fill:#fafafa;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(21.959969,0.17707278)"><flowRegion
-         id="flowRegion9581"><rect
-           id="rect9583"
-           width="35.053814"
-           height="40.577858"
-           x="12.207456"
-           y="13.21898"
-           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:6px;font-family:Rubik;-inkscape-font-specification:'Rubik Medium';fill:#fafafa;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara9585">2</flowPara></flowRoot>  </g>
+    <g
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;line-height:100%;font-family:Rubik;-inkscape-font-specification:'Rubik Medium';letter-spacing:0px;word-spacing:0px;fill:#fafafa;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="flowRoot9579">
+      <path
+         d="m 35.476484,12.721862 q 0.225,-0.18 0.285,-0.3675 0.0675,-0.1875 0.0675,-0.345 0,-0.3075 -0.1875,-0.5175 -0.1875,-0.2175 -0.6225,-0.2175 -0.4125,0 -0.6075,0.2025 -0.1875,0.2025 -0.27,0.5175 -0.0225,0.0975 -0.09,0.15 -0.0675,0.045 -0.135,0.045 l -0.5925,0 q -0.0825,0 -0.15,-0.0525 -0.06,-0.06 -0.0525,-0.15 0.0225,-0.3375 0.1725,-0.6375 0.15,-0.3 0.3975,-0.525 0.255,-0.225 0.5925,-0.3525 0.3375,-0.135 0.7275,-0.135 0.4725,0 0.8175,0.1575 0.345,0.15 0.57,0.3975 0.225,0.24 0.33,0.54 0.1125,0.2925 0.1125,0.585 0,0.1875 -0.0225,0.36 -0.0225,0.165 -0.105,0.3375 -0.0825,0.165 -0.24,0.3525 -0.1575,0.18 -0.42,0.39 l -1.3875,1.2675 2.085,0 q 0.0825,0 0.1425,0.06 0.06,0.06 0.06,0.1425 l 0,0.5325 q 0,0.0825 -0.06,0.1425 -0.06,0.06 -0.1425,0.06 l -3.5025,0 q -0.0825,0 -0.1425,-0.06 -0.06,-0.06 -0.06,-0.1425 l 0,-0.4575 q 0,-0.1275 0.075,-0.2175 0.075,-0.0975 0.1275,-0.135 l 2.2275,-1.9275 z"
+         style=""
+         id="path4179" />
+    </g>
+  </g>
 </svg>
