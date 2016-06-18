@@ -160,10 +160,15 @@
         border-radius: 5px;
       }
       a {
+        padding: 10px;
+        border-radius: 5px;
         text-decoration: none;
       }
-      a:visited {
-        color: red;
+      a:active {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      #tentang {
+        font-size: 28px;
       }
       @media screen and (min-width:1024px) {
         #equat-container {
@@ -199,6 +204,9 @@
           font-size: 18px;
           height: 125px;
         }
+        #tentang {
+          font-size: 18px;
+        }
       }
       @media screen and (min-resolution:180dpi) {
         body {
@@ -225,10 +233,10 @@
     </div>
     <div id="dialogoverlay">
       <div id="dialog">Aplikasi sederhana untuk memecahkan persamaan kuadrat.<br><br> kode sumber <a href="https://github.com/mzpsh/xkuadrat" style="color: #888888;" target="blank">github.com/mzpsh/xkuadrat</a>
-      <div style="position: absolute; bottom: 25px; right: 25px; float: right;"><a href="#close"  style="color: #0288D1;" class="mediumfont">TUTUP</a></div>
+      <div style="position: absolute; bottom: 25; right: 25; float: right;"><a href="#close"  style="color: #0288D1;" class="mediumfont">TUTUP</a></div>
       </div>
     </div>
-    <a href="#dialogoverlay" class="mediumfont" style="color: #78909C; font-size: 18px; margin-top: 100px;">TENTANG</a>
+    <a id="tentang" href="#dialogoverlay" class="mediumfont" style="color: #78909C; margin-top: 100px;">TENTANG</a>
     <script>
     function blankForm(id) {
       document.getElementById(id).value = ''
