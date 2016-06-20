@@ -1,8 +1,16 @@
 
-  **xkuadrat**
-	Coba langsung di browser : [https://mzpsh.github.io/xkuadrat]
+#xkuadrat
 
-  Aplikasi web sederhana untuk memecahkan persamaan kuadrat.
-  Ditulis dengan HTML,CSS dan JavaScript tanpa tambahan library eksternal.
+Coba langsung di browser : [mzpsh.github.io](https://mzpsh.github.io/xkuadrat)
+
+Aplikasi web sederhana untuk memecahkan persamaan kuadrat.
+Ditulis dengan HTML,CSS dan JavaScript tanpa tambahan library eksternal.
   
-  Menggunakan font *Rubik*, Hak cipta (c) 2015 oleh Hubert & Fischer.
+Menggunakan font *Rubik*, Hak cipta (c) 2015 oleh Hubert & Fischer.
+
+**Tampilan**
+
+![](screenshots/1.png)
+![](screenshots/2.png)
+![](screenshots/3.png)
+![](screenshots/4.png)
