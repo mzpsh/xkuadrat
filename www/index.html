@@ -1,0 +1,292 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>x² - kalkulator persamaan kuadrat</title>
+    <style>
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      
+      @font-face {
+        font-family: rubik-light;
+        src: url(resources/Rubik-Light.ttf)
+      }
+      @font-face {
+        font-family: rubik-medium;
+        src: url(resources/Rubik-Medium.ttf)
+      }
+      
+      .lightfont { font-family: rubik-light; }
+      .mediumfont { font-family: rubik-medium; }
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .flex-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .shadow {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      }
+      #container {
+        display: flex;
+        margin: auto 0px;
+      }
+      #equat-container {
+        flex-direction: column; /*row*/
+        padding: 32px 21px; /*12px 21px*/
+        margin: 16px;
+        background-color: #F5F6F7;
+        color: #555555;
+        border-radius: 5px;
+      }
+      #equations {
+        padding: 0px;
+        margin: 10px 21px 18px; /*0px 21px*/
+      }
+      #hitung {
+        padding: 22px 136px;  /*8px 15px*/
+        margin: 20px 32px 10px; /*0px 32px*/
+        font-size: 36px; /*25px*/
+        background-color: #0288D1;
+        color: #FFFFFF;
+        border-style: solid;
+        border-width: 0px 0px 5px; /*0px 0px 3px*/
+        border-radius: 10px; /*5px*/
+        border-color: #0277BD;
+        transition: all 0.2s;
+        transition-timing-function: ease-out;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      }
+      #hitung:hover {
+        background-color: #039BE5;
+        border-color: #0288D1;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
+      #hitung:focus { outline: none; }
+      #hasil {
+        margin: 16px;
+      }
+      .card {
+        zoom: 125%; /*100%*/
+        position: relative;
+        padding: 25px;
+        margin: 22px; /*16px*/
+        width: 380px; /*350px*/
+        height: 125px; /*85px*/
+        color: #555555;
+        font-size: 28px; /*20px*/
+        background-color: #F5F6F7;
+        border-radius: 5px;
+      }
+      body {
+        padding: 100px 0px;
+        background-color: #37474f ;
+        color: #FFFFFF;
+        font-family: rubik-light;
+        font-size: 40px;
+      }
+      img {
+        zoom: 125%;
+        margin: 42px; /*16px*/
+      }
+      div {
+        border-style: solid;
+        border-width: 0px;
+        border-color: #FFFF00;
+      }
+      input {
+        padding: 0px;
+        margin: 0px;
+        width: 65px;
+        background-color: #F5F6F7;
+        color: #555555;
+        font-size: 40px;
+        text-align: right;  
+        border-style: solid;
+        border-width: 0px;
+      }
+      input:focus {
+        border-style: solid;
+        border-width: 0px 0px 2px;
+        border-color: #A9A9A9;
+        outline: none;
+      } 
+      .ok {
+        border-width: 0px;
+      }
+      .ok:focus {
+        border-width: 0px 0px 3px;
+        border-color: #A9A9A9;
+      }
+      .notok {
+        border-width: 0px 0px 3px;
+        border-color: #FF6C6C;
+      }
+      #dialogoverlay {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: all 0.2s;
+        transition-timing-function: ease-out;
+        pointer-events: none;
+        opacity: 0;
+      }
+      #dialogoverlay:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #dialog {
+        position: absolute;
+        z-index: 2000;
+        top: calc(50% - 150px);
+        left: calc(50% - 250px);
+        padding: 25px;
+        width: 450px;
+        height: 225px;
+        color: #555555;
+        font-size: 28px;
+        background-color: #F5F6F7;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        border-radius: 5px;
+      }
+      a {
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      a:active {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      #tentang {
+        font-size: 28px;
+      }
+      @media screen and (min-width:1024px) {
+        #equat-container {
+          flex-direction: row;
+          padding: 16px 21px;
+        }
+        #equations {
+          margin: 0px 21px;
+        }
+        #hitung {
+          padding: 8px 15px;
+          margin: 0px 21px;
+          font-size: 25px;
+          border-width: 0px 0px 3px;
+          border-radius: 5px;
+        }
+        #hasil {
+          font-size: 32px;
+          margin: 0px;
+        }
+        .card {
+          zoom: 100%;
+          padding: 15px;
+          margin: 16px;
+          width: 350px;
+          height: 85px;
+          font-size: 20px;
+        }
+        img {
+          zoom: 100%;
+        }
+        #dialog {
+          font-size: 18px;
+          height: 125px;
+        }
+        #tentang {
+          font-size: 18px;
+        }
+      }
+      @media screen and (min-resolution:180dpi) {
+        body {
+          zoom: 150%;
+        }
+      }
+    </style>
+  </head>
+  <body class="flex-column">
+    <div id="container">
+      <div id="content" class="flex-column">
+        <img src="resources/head.svg">
+        <div id="equat-container" class="flex-row shadow">
+          <div id="equations" class="lightfont">
+          <span style="color: #A9A9A9;">.</span><input id="a" class="lightfont" onclick="blankForm('a')" type="number" placeholder="a"></input>x²&nbsp + <input id="b" class="lightfont" onclick="blankForm('b')" type="number" placeholder="b"></input>x&nbsp + <input id="c" class="lightfont" onclick="blankForm('c')" type="number" placeholder="c"></input>&nbsp =&nbsp 0
+          </div>
+          <button id="hitung" class="mediumfont" onclick="hitungPersamaan()">
+          HITUNG >
+          </button>
+        </div>
+        <div id="hasil">
+        </div>
+      </div>
+    </div>
+    <div id="dialogoverlay">
+      <div id="dialog">Aplikasi sederhana untuk memecahkan persamaan kuadrat.<br><br> kode sumber <a href="https://github.com/mzpsh/xkuadrat" style="color: #888888;" target="blank">github.com/mzpsh/xkuadrat</a>
+      <div style="position: absolute; bottom: 25; right: 25; float: right;"><a href="#close"  style="color: #0288D1;" class="mediumfont">TUTUP</a></div>
+      </div>
+    </div>
+    <a id="tentang" href="#dialogoverlay" class="mediumfont" style="color: #78909C; margin-top: 100px;">TENTANG</a>
+    <script>
+    function blankForm(id) {
+      document.getElementById(id).value = ''
+    }
+    function hitungPersamaan() {
+      a = document.getElementById('a').value
+      if ( a == '' || a == null ) {
+         a = 1
+         aStr = ''
+      } else {
+        aStr = a
+      }
+      b = document.getElementById('b')
+      if ( b.value == '' || b.value == null ) {
+         b.className = 'notok lightfont'
+      } else {
+        b.className = 'ok'
+        b = b.value
+        bStr = b
+        c = document.getElementById('c')
+        if ( c.value == '' || c.value == null ) {
+          c.className = 'notok lightfont'
+        } else {
+          c.className = 'ok'
+          c = c.value
+          cStr = c
+          hasil = document.getElementById('hasil');
+          akar = Math.sqrt((b * b) - (4 * a * c)) 
+          if (isNaN(akar) == true) {
+            hasil.innerHTML = '<div class="card shadow"><div class="mediumfont" style="float: right;"><</div><div>Hasil tidak tersedia<br>(bilangan imajiner)</div><div style="position: absolute; bottom: 10px; color: #888888;">' + aStr + 'x² + ' + bStr + 'x + ' + cStr + ' = 0</div></div>' + hasil.innerHTML
+          } else {
+            hasilX1 = (-b + akar) / (2 * a)
+            hasilX2 = (-b - akar) / (2 * a)
+            hasilX1str = String(hasilX1)
+            hasilX2str = String(hasilX2)
+            if (hasilX1str.indexOf('.') !== -1 ) {
+              hasilX1 = hasilX1.toFixed(6)
+            } else {
+              undefined
+            }
+            if (hasilX2str.indexOf('.') !== -1 ) {
+              hasilX2 = hasilX2.toFixed(6)
+            } else {
+              undefined
+            }
+            hasil.innerHTML = '<div class="card shadow"><div class="mediumfont" style="float: right;"><</div><div>x = ' + hasilX1 + ' atau<br>x = ' + hasilX2 + '</div><div style="position: absolute; bottom: 10px; color: #888888;">' + aStr + 'x² + ' + bStr + 'x + ' + cStr + ' = 0</div></div>' + hasil.innerHTML
+          }
+        }
+      }
+    }
+    </script>
+  </body>
+</html>
